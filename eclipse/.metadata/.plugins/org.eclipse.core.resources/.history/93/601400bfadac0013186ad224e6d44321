@@ -1,0 +1,18 @@
+package gaseousMC.deathlymad.machine;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class MachineBase extends Block {//TODO
+	
+	//Power Varibales
+	public int power;
+	public int pwrIn;
+	public int pwrout;
+	
+	public MachineBase(int par1) {
+		super(par1, Material.iron);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

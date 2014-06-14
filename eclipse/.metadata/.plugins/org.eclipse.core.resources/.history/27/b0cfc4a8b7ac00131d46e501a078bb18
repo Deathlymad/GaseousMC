@@ -1,0 +1,23 @@
+package gaseousMC.deathlymad.entity.machine;
+
+import gaseousMC.deathlymad.Enum.gas;
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEntityMachine extends TileEntity {
+
+	public gas[] spawnsSmoke;
+	
+	public TileEntityMachine( gas[] spawnsSmoke)
+	
+	{
+		
+		
+	}
+	
+	@Override
+	public void updateEntity()
+	{
+		
+		
+	}
+}

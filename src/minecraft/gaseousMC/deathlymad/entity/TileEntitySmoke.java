@@ -74,7 +74,176 @@ public class TileEntitySmoke extends TileEntity {
 		this.writeToNBT(nbtdata);
 		return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 0, nbtdata);
 	}
+	
+	public void addGasToList(gas Gas)
+	{
+		mixture[mixture.length]=Gas;
+	}
 
+	private void diffuse(World par1World,int x, int y, int z)
+	{
+		float densAir = (float) (101326/286.9*293);//calculates density of air (default)
+		
+		if( getDensity() > densAir)
+		{
+			if ((par1World.getBlockTileEntity(x,  y+1,  z) instanceof TileEntitySmoke))
+			{
+				par1World.setBlock(x, y+1, z, BlockSmoke.id);
+				par1World.setBlockTileEntity(x, y+1, z, this);
+				par1World.setBlockToAir(x, y, z);
+				return;
+			} else 
+			{
+				int movement;
+				Random r = new Random();
+				movement = r.nextInt(3);
+				switch(movement)
+				{
+					case 0:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x+1, y, z, BlockSmoke.id);
+						par1World.setBlockTileEntity(x+1, y, z, this);
+						par1World.setBlockToAir(x, y, z); //moves left
+						}
+						return;
+					case 1:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x-1, y, z, BlockSmoke.id);
+						par1World.setBlockTileEntity(x-1, y, z, this);
+						par1World.setBlockToAir(x, y, z); //moves forward
+						}
+						return;
+					case 2:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z+1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z+1, this);
+						par1World.setBlockToAir(x, y, z); //moves right
+						}
+						return;
+					case 3:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z-1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z-1, this);
+						par1World.setBlockToAir(x, y, z); //moves back
+						}
+						return;
+					default:
+						return;
+						
+				}
+			}
+		} else if (this.getDensity() <= densAir)
+		{
+			if ((par1World.getBlockTileEntity(x,  y-1,  z) instanceof TileEntitySmoke))
+			{
+
+				par1World.setBlock(x, y-1, z, BlockSmoke.id);
+				par1World.setBlockTileEntity(x, y-1, z, this);
+				par1World.setBlockToAir(x, y, z); //moves down
+				return;
+			} else 
+			{
+				int movement;
+				Random r = new Random();
+				movement = r.nextInt(3);
+				switch(movement)
+				{
+					case 0:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+							par1World.setBlock(x+1, y, z, BlockSmoke.id);
+							par1World.setBlockTileEntity(x+1, y, z, this);
+							par1World.setBlockToAir(x, y, z); //moves left
+						}
+						return;
+					case 1:
+						if(par1World.getBlockTileEntity(x-1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x-1, y, z, BlockSmoke.id);
+						par1World.setBlockTileEntity(x-1, y, z, this);
+						par1World.setBlockToAir(x, y, z); //moves forward
+						}
+						return;
+					case 2:
+						if(par1World.getBlockTileEntity(x, y, z+1) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z+1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z+1, this);
+						par1World.setBlockToAir(x, y, z); //moves right
+						}
+						return;
+					case 3:
+						if(par1World.getBlockTileEntity(x, y, z-1) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z-1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z-1, this);
+						par1World.setBlockToAir(x, y, z); //moves back
+						}
+						return;
+					default:
+						return;
+						
+				}
+			}
+		} else
+		{
+			if ((par1World.getBlockTileEntity(x,  y+1,  z) instanceof TileEntitySmoke))
+			{
+				par1World.setBlock(x, y+1, z, BlockSmoke.id);
+				par1World.setBlockTileEntity(x, y+1, z, this);
+				par1World.setBlockToAir(x, y, z); //moves up
+				return;
+			} else 
+			{
+				int movement;
+				Random r = new Random();
+				movement = r.nextInt(3);
+				switch(movement)
+				{
+					case 0:
+						if(par1World.getBlockTileEntity(x+1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x+1, y, z, BlockSmoke.id);
+						par1World.setBlockTileEntity(x+1, y, z, this);
+						par1World.setBlockToAir(x, y, z); //moves left
+						}
+						return;
+					case 1:
+						if(par1World.getBlockTileEntity(x-1, y, z) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x-1, y, z, BlockSmoke.id);
+						par1World.setBlockTileEntity(x-1, y, z, this);
+						par1World.setBlockToAir(x, y, z); //moves forward
+						}
+						return;
+					case 2:
+						if(par1World.getBlockTileEntity(x, y, z+1) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z+1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z+1, this);
+						par1World.setBlockToAir(x, y, z); //moves right
+						}
+						return;
+					case 3:
+						if(par1World.getBlockTileEntity(x, y, z-1) instanceof TileEntitySmoke)
+						{
+						par1World.setBlock(x, y, z-1, BlockSmoke.id);
+						par1World.setBlockTileEntity(x, y, z-1, this);
+						par1World.setBlockToAir(x, y, z); //moves back
+						}
+						return;
+					default:
+						return;
+						
+				}
+			}
+		}	
+	}
+	
 	private void moveSmoke(World par1World,int x, int y, int z)
 	{
 		float densAir = (float) (101326/286.9*293);//calculates density of air (default)
@@ -95,7 +264,7 @@ public class TileEntitySmoke extends TileEntity {
 				switch(movement)
 				{
 					case 0:
-						if(par1World.getBlockId(x+1, y, z)!=0)
+						if(par1World.getBlockId(x+1, y, z)==0)
 						{
 						par1World.setBlock(x+1, y, z, BlockSmoke.id);
 						par1World.setBlockTileEntity(x+1, y, z, this);
@@ -103,7 +272,7 @@ public class TileEntitySmoke extends TileEntity {
 						}
 						return;
 					case 1:
-						if(par1World.getBlockId(x+1, y, z)!=0)
+						if(par1World.getBlockId(x+1, y, z)==0)
 						{
 						par1World.setBlock(x-1, y, z, BlockSmoke.id);
 						par1World.setBlockTileEntity(x-1, y, z, this);
@@ -111,7 +280,7 @@ public class TileEntitySmoke extends TileEntity {
 						}
 						return;
 					case 2:
-						if(par1World.getBlockId(x+1, y, z)!=0)
+						if(par1World.getBlockId(x+1, y, z)==0)
 						{
 						par1World.setBlock(x, y, z+1, BlockSmoke.id);
 						par1World.setBlockTileEntity(x, y, z+1, this);
@@ -119,7 +288,7 @@ public class TileEntitySmoke extends TileEntity {
 						}
 						return;
 					case 3:
-						if(par1World.getBlockId(x+1, y, z)!=0)
+						if(par1World.getBlockId(x+1, y, z)==0)
 						{
 						par1World.setBlock(x, y, z-1, BlockSmoke.id);
 						par1World.setBlockTileEntity(x, y, z-1, this);
@@ -243,7 +412,7 @@ public class TileEntitySmoke extends TileEntity {
 	public void updateEntity()
 	{
 		tickcounter++;
-		if (tickcounter>=100)
+		if (tickcounter>=10)
 		{
 			tickcounter=0;
 			moveSmoke(worldObj, xCoord, yCoord, zCoord);

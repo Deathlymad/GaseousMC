@@ -1,0 +1,15 @@
+package gaseousMC.deathlymad.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class BlockSmoke extends Block {
+	
+	public int temp; //saves the temperature in Celsius
+	
+	public BlockSmoke(int par1) {
+		super(par1, Material.air);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

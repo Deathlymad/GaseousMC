@@ -1,0 +1,12 @@
+package gaseousMC.deathlymad.Enum;
+
+public enum gas {
+	carbondioxide(188.9);
+	public final float gas_constant = 0;
+	
+	gas (float gasconst)
+	{
+		gas_constant=gasconst;
+	}
+
+}

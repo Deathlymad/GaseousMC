@@ -1,0 +1,49 @@
+package gaseousMC.deathlymad.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.world.World;
+
+import gaseousMC.deathlymad.Enum.gas;
+
+public class BlockSmoke extends Block {
+	
+	public int temp; //saves the temperature in Celsius
+	public gas[] mixture;
+	
+	public BlockSmoke(int par1) {
+		super(par1, Material.air);
+		this.setBlockUnbreakable();
+		this.setLightOpacity(0);
+		this.setTickRandomly(true);
+		this.setUnlocalizedName("Smoke");
+		
+	}
+	
+	public int getDensity()
+	{
+		int averagegasnumber=0;
+		int maxgasnumber=0;
+		for(int i=0; i<mixture.length; i++)
+			maxgasnumber+=mixture[i].gas_constant;
+		averagegasnumber=maxgasnumber/mixture.length;
+		return 101326/(temp*averagegasnumber); //we are going to need a specific enum for different gases
+	}
+	
+	public void onRandomTick ()
+	{
+		
+	}
+	
+	@Override
+	public void onBlockPlaced()
+	{
+		
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World w, int x, int y, int z, int tilex, int tiley, int tilez)//tick in case new smoke is spawned or smoke is moving
+	{
+		
+	}
+}

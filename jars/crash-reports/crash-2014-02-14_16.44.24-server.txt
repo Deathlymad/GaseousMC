@@ -1,0 +1,82 @@
+---- Minecraft Crash Report ----
+// Uh... Did I do that?
+
+Time: 14.02.14 16:44
+Description: Ticking tile entity
+
+java.lang.NullPointerException
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.getDensity(TileEntitySmoke.java:23)
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.moveSmoke(TileEntitySmoke.java:69)
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.updateEntity(TileEntitySmoke.java:194)
+	at net.minecraft.world.World.updateEntities(World.java:2209)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:550)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:587)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:129)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:484)
+	at net.minecraft.server.ThreadMinecraftServer.run(ThreadMinecraftServer.java:16)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.getDensity(TileEntitySmoke.java:23)
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.moveSmoke(TileEntitySmoke.java:69)
+	at gaseousMC.deathlymad.entity.TileEntitySmoke.updateEntity(TileEntitySmoke.java:194)
+
+-- Tile entity being ticked --
+Details:
+	Name: null // gaseousMC.deathlymad.entity.TileEntitySmoke
+	Block type: ID #1000 (tile.Smoke // gaseousMC.deathlymad.block.BlockSmoke)
+	Block data value: 0 / 0x0 / 0b0000
+	Block location: World: (69,71,161), Chunk: (at 5,4,1 in 4,10; contains blocks 64,0,160 to 79,255,175), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Actual block type: ID #1000 (tile.Smoke // gaseousMC.deathlymad.block.BlockSmoke)
+	Actual block data value: 0 / 0x0 / 0b0000
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:2209)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:550)
+
+-- Affected level --
+Details:
+	Level name: Test
+	All players: 1 total; [EntityPlayerMP['Player375'/269, l='Test', x=70,37, y=72,00, z=159,22]]
+	Chunk stats: ServerChunkCache: 625 Drop: 0
+	Level seed: -9137738276366550725
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (92,64,168), Chunk: (at 12,4,8 in 5,10; contains blocks 80,0,160 to 95,255,175), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 8543 game time, 8543 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 145837 (now: false), thunder time: 93064 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:587)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:129)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:484)
+	at net.minecraft.server.ThreadMinecraftServer.run(ThreadMinecraftServer.java:16)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.6.4
+	Operating System: Windows 8 (x86) version 6.2
+	Java Version: 1.7.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) Client VM (mixed mode), Oracle Corporation
+	Memory: 768745352 bytes (733 MB) / 1046937600 bytes (998 MB) up to 1046937600 bytes (998 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 3467 (194152 bytes; 0 MB) allocated, 3289 (184184 bytes; 0 MB) used
+	Suspicious classes: FML and Forge are installed
+	IntCache: cache: 0, tcache: 0, allocated: 3, tallocated: 63
+	FML: MCP v8.11 FML v6.4.49.965 Minecraft Forge 9.11.1.965 4 mods loaded, 4 mods active
+	mcp{8.09} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{6.4.49.965} [Forge Mod Loader] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{9.11.1.965} [Minecraft Forge] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	gaseousMC{0.0.1} [GaseousMC] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 1017 (56952 bytes; 0 MB) allocated, 998 (55888 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['Player375'/269, l='Test', x=70,37, y=72,00, z=159,22]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

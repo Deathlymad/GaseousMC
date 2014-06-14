@@ -1,0 +1,5 @@
+package gaseousMC.deathlymad.entity.machine;
+
+public class TileEntityMachine {
+
+}

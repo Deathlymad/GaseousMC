@@ -1,0 +1,5 @@
+package gaseousMC.deathlymad.block;
+
+public class BlockSmoke extends Block {
+	
+}
