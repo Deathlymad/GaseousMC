@@ -1,7 +1,0 @@
-package gaseousMC.deathlymad.entity.machine;
-
-import net.minecraft.tileentity.TileEntity;
-
-public class TileEntityMachine extends TileEntity {
-	
-}

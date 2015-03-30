@@ -1,9 +1,0 @@
-package gaseousMC.main.proxy;
-
-
-public class GaseousMCClientProxy {
-	@Overwrite
-	public void registerRenderers() {
-        // Nothing here as the server doesn't render graphics or entities!
-	}
-}

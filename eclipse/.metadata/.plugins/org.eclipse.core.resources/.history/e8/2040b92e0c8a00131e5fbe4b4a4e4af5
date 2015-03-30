@@ -1,8 +1,0 @@
-package gaseousMC.main.proxy;
-
-import net.minecraftforge.client.MinecraftForgeClient;
-import tutorial.generic.CommonProxy;
-
-public class GaseousMCClientProxy {
-
-}
